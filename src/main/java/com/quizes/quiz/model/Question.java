@@ -1,6 +1,7 @@
 package com.quizes.quiz.model;
 
 import jakarta.annotation.Generated;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,17 +10,18 @@ import jakarta.persistence.Table;
 import lombok.Data;
 @Data
 @Entity
-@Table(name = "questions")
 public class Question {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String Category;
-    private String Question;
-    private String OptionA;
-    private String OptionB;
-    private String OptionC;
-    private String OptionD;
-    private String CorrectAnswer;
-    
+  
+    private String category;
+    private String question;
+    private String optionA;
+    private String optionB;
+    private String optionC;
+    private String optionD;
+    @Column(name = "correctAnswer") 
+    private String correctAnswer;
+     
 }
